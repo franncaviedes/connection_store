@@ -236,7 +236,7 @@
                 <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 min-h-[58px] flex items-start">${p.name}</h3>
                 <div class="flex items-center justify-between gap-2 mb-4">
                     <div class="flex items-center gap-2">${swatches}</div>
-                    <span class="stock-label font-label-mono text-label-mono text-secondary"></span>
+                    ${p.stock !== undefined ? `<span class="font-label-mono text-label-mono text-secondary">Stock: ${p.stock}</span>` : ""}
                 </div>
                 <div class="flex justify-end items-center">
                     <button class="bg-primary text-on-primary px-4 py-2 hover:bg-inverse-surface transition-colors font-body-md text-body-md">View</button>
