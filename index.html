@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConnectionOK - Select Your iPhone</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#3a83ea",
+                        "on-surface-variant": "#4c4546",
+                        "tertiary-fixed": "#d7e3ff",
+                        "outline": "#7e7576",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1d",
+                        "on-secondary-fixed": "#1a1b1f",
+                        "on-tertiary-fixed": "#001b3e",
+                        "surface": "#f9f9fb",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "background": "#f9f9fb",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary-container": "#e0dfe4",
+                        "primary": "#000000",
+                        "on-background": "#1a1c1d",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f0f0f2",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#001b3e",
+                        "tertiary-fixed-dim": "#aac7ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#cfc4c5",
+                        "inverse-surface": "#2f3132",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "secondary": "#5e5e63",
+                        "surface-container": "#eeeef0",
+                        "surface-container-low": "#f3f3f5",
+                        "surface-bright": "#f9f9fb",
+                        "on-secondary-container": "#626267",
+                        "surface-container-highest": "#e2e2e4",
+                        "metallic-silver": "#D2D2D7",
+                        "on-error": "#ffffff",
+                        "success-green": "#28CD41",
+                        "inverse-primary": "#c6c6c6",
+                        "secondary-fixed-dim": "#c7c6cb",
+                        "primary-container": "#1b1b1b",
+                        "warning-amber": "#FF9F0A",
+                        "secondary-fixed": "#e3e2e7",
+                        "surface-tint": "#5e5e5e",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#848484",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-dim": "#d9dadc",
+                        "surface-variant": "#e2e2e4",
+                        "on-tertiary-fixed-variant": "#00458e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "unit": "8px",
+                        "max-width": "1440px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["60px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-mono": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md text-primary dark:text-primary-fixed font-body-md text-body-md fixed top-0 w-full border-b border-metallic-silver shadow-sm opacity-20 z-50 transition-all duration-200 ease-in-out" style="opacity: 1; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+<div class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary-fixed">
+                ConnectionOK
+            </div>
+<nav class="hidden md:flex items-center space-x-6">
+
+</nav>
+<div class="flex items-center space-x-4">
+<button class="text-secondary hover:text-primary transition-colors p-2 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors p-2 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+<!-- Selection Header -->
+<section class="mb-16 text-center">
+<h1 class="font-headline-xl text-headline-xl mb-6">Select your iPhone</h1>
+<!-- Condition Filter -->
+<div class="flex justify-center mb-8">
+<div class="bg-surface-container-low p-1 rounded-full inline-flex" id="condition-filters">
+<button class="condition-btn px-8 py-2 rounded-full font-body-md text-body-md text-on-primary bg-primary font-bold shadow-sm transition-all" data-condition="usados">Usados</button>
+<button class="condition-btn px-8 py-2 rounded-full font-body-md text-body-md text-secondary hover:text-primary transition-all" data-condition="sellados">Sellados</button>
+</div>
+</div>
+<!-- Series Selector (Minimalist) -->
+<div class="flex flex-wrap justify-center gap-4" id="series-filters">
+<button class="series-btn px-6 py-2 border border-metallic-silver rounded-full font-body-md text-body-md text-primary bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-series="17">iPhone 17</button>
+<button class="series-btn px-6 py-2 border border-metallic-silver rounded-full font-body-md text-body-md text-primary bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-series="16">iPhone 16</button>
+<button class="series-btn px-6 py-2 border-2 border-primary rounded-full font-body-md text-body-md text-primary bg-surface-container-low font-bold" data-series="15">iPhone 15</button>
+<button class="series-btn px-6 py-2 border border-metallic-silver rounded-full font-body-md text-body-md text-primary bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-series="14">iPhone 14</button>
+<button class="series-btn px-6 py-2 border border-metallic-silver rounded-full font-body-md text-body-md text-primary bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-series="13">iPhone 13</button>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter" id="product-grid"></section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface-dim text-secondary dark:text-on-secondary-container font-label-mono text-label-mono w-full mt-20 border-t border-metallic-silver transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="flex flex-col items-start space-y-4">
+<div class="font-headline-lg text-headline-lg text-primary">
+                    ConnectionOK
+                </div>
+<p>© 2026 ConnectionOK. Quiet Authority in Tech.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
+<a class="text-secondary hover:text-primary transition-colors hover:underline decoration-metallic-silver" href="#">Privacy Policy</a>
+<a class="text-secondary hover:text-primary transition-colors hover:underline decoration-metallic-silver" href="#">Terms of Service</a>
+<a class="text-secondary hover:text-primary transition-colors hover:underline decoration-metallic-silver" href="#">Shipping &amp; Returns</a>
+<a class="text-secondary hover:text-primary transition-colors hover:underline decoration-metallic-silver" href="#">Battery Health Guide</a>
+<a class="text-secondary hover:text-primary transition-colors hover:underline decoration-metallic-silver" href="#">Support</a>
+</div>
+</div>
+</footer>
+<a aria-label="Contact us on WhatsApp" class="fixed bottom-8 right-8 bg-success-green text-on-primary w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50 group" href="https://wa.me/5493385590397?text=Hola%2C%20estoy%20viendo%20la%20p%C3%A1gina%20de%20ConnectionOK%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20iPhones%20disponibles." target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-8 h-8">
+<path fill="currentColor" d="M16.04 3C8.84 3 3 8.77 3 15.89c0 2.28.6 4.51 1.75 6.47L3 29l6.87-1.8a13.1 13.1 0 0 0 6.17 1.57c7.2 0 13.04-5.77 13.04-12.88S23.24 3 16.04 3zm7.61 18.14c-.32.89-1.85 1.71-2.56 1.82-.67.1-1.51.15-2.44-.15-.56-.18-1.28-.42-2.2-.82-3.87-1.68-6.39-5.6-6.58-5.86-.18-.25-1.57-2.05-1.57-3.92s.98-2.79 1.33-3.17c.35-.38.77-.48 1.03-.48h.74c.23 0 .54-.08.84.63.32.77 1.09 2.66 1.19 2.86.1.2.16.43.03.68-.13.25-.2.4-.4.62-.2.23-.42.5-.6.67-.2.2-.4.41-.17.8.23.38 1.02 1.67 2.19 2.7 1.5 1.33 2.77 1.75 3.16 1.95.38.2.6.18.82-.1.23-.28.97-1.13 1.23-1.52.25-.38.51-.33.87-.2.36.13 2.27 1.06 2.66 1.25.38.2.64.3.74.46.1.15.1.89-.22 1.78z"/>
+</svg>
+</a>
+<script>
+    // Imagen de referencia genérica (reemplazar por fotos reales de cada modelo cuando las tengas)
+    const PLACEHOLDER_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuBc5khNRatQFilMnZ2rFu2qIvIcFmw4FSNGr16VSPkDeHhF7npPjvcxukXLdpA76f51QGpVtVOT7hi49TXsUm88t6L96mYAAHb-aaO0xEzdaQhFkHbdpEZcCyrOWU2lHsFg2KzExgEOa5RUQH9Eh1OFjXbwqpsWYVFMUO0LCCr9g7AzbHKTpuLnGRsOW-WCytcRTCN1V1ZPvH5ggJyyegleGzMftr--72pEKAjXc3Tuw080-LPXINC6zA";
+
+    const PRODUCTS = {
+        "17": [
+            { name: "iPhone 17 Pro Max", storage: "512GB", battery: 99, colors: ["#464C55"], image: "img/iphone-17-pro.png" },
+            { name: "iPhone 17 Pro", storage: "256GB", battery: 100, colors: ["#B8B6B3", "#464C55", "#F3F2EE"], image: "img/iphone-17-pro.png" },
+            { name: "iPhone 17", storage: "128GB", battery: 100, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-16.png" }
+        ],
+        "16": [
+            { name: "iPhone 16 Pro Max", storage: "512GB", battery: 96, colors: ["#464C55"], image:  "img/iphone-16pro.png" },
+            { name: "iPhone 16 Pro", storage: "256GB", battery: 98, colors: ["#B8B6B3", "#464C55", "#F3F2EE"], image:  "img/iphone-16pro.png" },
+            { name: "iPhone 16", storage: "128GB", battery: 100, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-16.png" }
+        ],
+        "15": [
+            { name: "iPhone 15 Pro Max", storage: "256GB", battery: 98, colors: ["#464C55"], image:  "img/iphone-16pro.png"  },
+            { name: "iPhone 15 Pro", storage: "256GB", battery: 100, colors: ["#B8B6B3", "#464C55", "#F3F2EE"], image:  "img/iphone-16pro.png" },
+            { name: "iPhone 15", storage: "128GB", battery: 100, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-15.png" }
+        ],
+        "14": [
+            { name: "iPhone 14 Pro Max", storage: "256GB", battery: 91, colors: ["#464C55", "#F3F2EE"], image:  "img/iphone-16pro.png"  },
+            { name: "iPhone 14 Pro", storage: "128GB", battery: 93, colors: ["#464C55", "#B8B6B3"], image:  "img/iphone-16pro.png"  },
+            { name: "iPhone 14", storage: "128GB", battery: 94, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-15.png" }
+        ],
+        "13": [
+            { name: "iPhone 13 Pro Max", storage: "256GB", battery: 86, colors: ["#464C55", "#F3F2EE"], image:  "img/iphone-16pro.png"  },
+            { name: "iPhone 13 Pro", storage: "128GB", battery: 88, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-16pro.png" },
+            { name: "iPhone 13", storage: "128GB", battery: 87, colors: ["#464C55", "#B8B6B3", "#F3F2EE"], image: "img/iphone-15.png" }
+        ]
+    };
+
+    // Catálogo fijo de Sellados: no se organiza por serie, es una lista única
+    const SELLADOS = [
+        { name: "iPhone 16", storage: "128GB", battery: 100, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-16.png" },
+        { name: "iPhone 16 Pro", storage: "256GB", battery: 100, colors: ["#B8B6B3", "#464C55", "#F3F2EE"], image: PLACEHOLDER_IMG },
+        { name: "iPhone 17", storage: "256GB", battery: 100, colors: ["#464C55", "#B8B6B3"], image: "img/iphone-16.png"},
+        { name: "iPhone 17 Pro", storage: "256GB", battery: 100, colors: ["#B8B6B3", "#464C55", "#F3F2EE"], image: PLACEHOLDER_IMG },
+        { name: "iPhone 17 Pro Max", storage: "256GB", battery: 100, colors: ["#464C55"], image: PLACEHOLDER_IMG }
+    ];
+
+    function batteryClass(pct) {
+        return pct >= 90 ? "text-success-green" : "text-warning-amber";
+    }
+
+    function renderCard(p) {
+        const swatches = p.colors.map(c =>
+            `<div class="w-4 h-4 rounded-full border border-metallic-silver" style="background-color:${c}"></div>`
+        ).join("");
+
+        return `
+        <article class="bg-surface-container-lowest border border-metallic-silver p-6 flex flex-col group hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-6">
+                <div class="flex flex-col gap-2">
+                    <span class="bg-surface-container-low px-2 py-1 rounded font-label-mono text-label-mono text-secondary w-fit">${p.storage}</span>
+                    <span class="bg-surface-container-low px-2 py-1 rounded font-label-mono text-label-mono ${batteryClass(p.battery)} w-fit">Battery: ${p.battery}%</span>
+                </div>
+                <button class="text-secondary hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">favorite_border</span>
+                </button>
+            </div>
+            <div class="flex-grow flex items-center justify-center mb-6">
+                <img class="w-full h-64 object-contain" alt="${p.name}" src="${p.image}"/>
+            </div>
+            <div class="mt-auto">
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 min-h-[58px] flex items-start">${p.name}</h3>
+                <div class="flex items-center gap-2 mb-4">${swatches}</div>
+                <div class="flex justify-end items-center">
+                    <button class="bg-primary text-on-primary px-4 py-2 hover:bg-inverse-surface transition-colors font-body-md text-body-md">View</button>
+                </div>
+            </div>
+        </article>`;
+    }
+
+    let currentCondition = "usados";
+    let currentSeries = "15";
+
+    function renderGrid() {
+        const grid = document.getElementById("product-grid");
+        const items = currentCondition === "sellados" ? SELLADOS : PRODUCTS[currentSeries];
+        grid.innerHTML = items.map(renderCard).join("");
+    }
+
+    function setActiveSeriesButton(series) {
+        document.querySelectorAll(".series-btn").forEach(btn => {
+            const isActive = btn.dataset.series === series;
+            btn.classList.toggle("border-2", isActive);
+            btn.classList.toggle("border-primary", isActive);
+            btn.classList.toggle("bg-surface-container-low", isActive);
+            btn.classList.toggle("font-bold", isActive);
+            btn.classList.toggle("border", !isActive);
+            btn.classList.toggle("border-metallic-silver", !isActive);
+            btn.classList.toggle("bg-surface-container-lowest", !isActive);
+        });
+    }
+
+    function setSeriesFiltersEnabled(enabled) {
+        const wrapper = document.getElementById("series-filters");
+        wrapper.classList.toggle("opacity-40", !enabled);
+        wrapper.classList.toggle("pointer-events-none", !enabled);
+    }
+
+    document.getElementById("series-filters").addEventListener("click", (e) => {
+        const btn = e.target.closest(".series-btn");
+        if (!btn) return;
+        currentSeries = btn.dataset.series;
+        setActiveSeriesButton(currentSeries);
+        renderGrid();
+    });
+
+    document.getElementById("condition-filters").addEventListener("click", (e) => {
+        const btn = e.target.closest(".condition-btn");
+        if (!btn) return;
+        currentCondition = btn.dataset.condition;
+
+        document.querySelectorAll(".condition-btn").forEach(b => {
+            const isActive = b === btn;
+            b.classList.toggle("bg-primary", isActive);
+            b.classList.toggle("text-on-primary", isActive);
+            b.classList.toggle("font-bold", isActive);
+            b.classList.toggle("shadow-sm", isActive);
+            b.classList.toggle("text-secondary", !isActive);
+        });
+
+        // En Sellados el catálogo es fijo (no se filtra por serie), así que
+        // los botones de serie se ven deshabilitados mientras esté activo.
+        setSeriesFiltersEnabled(currentCondition === "usados");
+        renderGrid();
+    });
+
+    // Estado inicial: Usados / iPhone 15 (como venía el diseño)
+    renderGrid();
+</script>
+<!-- Firebase: conexión agregada sin modificar el diseño existente -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.1/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAbT4J-n90ye5n9S-j6TpAmNTv1gslq_fk",
+        authDomain: "connectionstore-dccdd.firebaseapp.com",
+        projectId: "connectionstore-dccdd",
+        storageBucket: "connectionstore-dccdd.firebasestorage.app",
+        messagingSenderId: "1040792377063",
+        appId: "1:1040792377063:web:839768dd11239ec2f63442",
+        measurementId: "G-WH4W0WH89"
+    };
+
+    const firebaseApp = initializeApp(firebaseConfig);
+    const db = getFirestore(firebaseApp);
+
+    async function loadIphone13FromFirebase() {
+        try {
+            const productRef = doc(db, "productos", "iphone-13");
+            const productSnap = await getDoc(productRef);
+
+            if (!productSnap.exists()) {
+                console.warn("Firebase: no existe el documento productos/iphone-13.");
+                return;
+            }
+
+            const data = productSnap.data();
+
+            // Solo agregamos/actualizamos los datos que existen en Firebase.
+            // El resto del diseño y de la información actual permanece igual.
+            if (data.modelo !== undefined) {
+                const iphone13 = PRODUCTS["13"]?.find(p => p.name === "iPhone 13");
+                if (iphone13) iphone13.name = String(data.modelo);
+            }
+
+            if (data.Stock !== undefined) {
+                const iphone13 = PRODUCTS["13"]?.find(p =>
+                    p.name === String(data.modelo || "iPhone 13")
+                );
+                if (iphone13) iphone13.stock = Number(data.Stock);
+            }
+
+            // Si cambió el modelo, buscamos el producto por su nuevo nombre.
+            if (data.Stock !== undefined) {
+                const iphone13Products = PRODUCTS["13"] || [];
+                const product = iphone13Products.find(p =>
+                    p.name === String(data.modelo || "iPhone 13")
+                );
+                if (product) product.stock = Number(data.Stock);
+            }
+
+            // Mantiene exactamente el diseño existente y solo agrega el stock
+            // como un dato adicional en la tarjeta del iPhone 13.
+            const originalRenderCard = renderCard;
+            window.renderCard = function(p) {
+                const card = originalRenderCard(p);
+
+                if (p.stock !== undefined) {
+                    return card.replace(
+                        '<div class="flex justify-end items-center">',
+                        `<div class="flex justify-between items-center mb-3">
+                            <span class="font-label-mono text-label-mono text-secondary">Stock: ${p.stock}</span>
+                            <span></span>
+                        </div>
+                        <div class="flex justify-end items-center">`
+                    );
+                }
+
+                return card;
+            };
+
+            renderGrid();
+            console.log("Firebase conectado correctamente:", data);
+        } catch (error) {
+            console.error("Error conectando con Firebase:", error);
+        }
+    }
+
+    loadIphone13FromFirebase();
+</script>
+
+</body></html>
