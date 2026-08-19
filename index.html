@@ -236,7 +236,7 @@
                 <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 min-h-[58px] flex items-start">${p.name}</h3>
                 <div class="flex items-center justify-between gap-2 mb-4">
                     <div class="flex items-center gap-2">${swatches}</div>
-                    ${p.stock !== undefined ? `<span class="font-label-mono text-label-mono text-secondary">Stock: ${p.stock}</span>` : ""}
+                    <span class="stock-label font-label-mono text-label-mono text-secondary"></span>
                 </div>
                 <div class="flex justify-end items-center">
                     <button class="bg-primary text-on-primary px-4 py-2 hover:bg-inverse-surface transition-colors font-body-md text-body-md">View</button>
@@ -319,46 +319,59 @@
         measurementId: "G-WH4W0WH89"
     };
 
-    const firebaseApp = initializeApp(firebaseConfig);
-    const db = getFirestore(firebaseApp);
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-    async function loadIphone13FromFirebase() {
+    async function cargarDatosFirebase() {
         try {
-            const productRef = doc(db, "productos", "iphone-13");
-            const productSnap = await getDoc(productRef);
+            const ref = doc(db, "productos", "iphone-13");
+            const snap = await getDoc(ref);
 
-            if (!productSnap.exists()) {
-                console.warn("Firebase: no existe productos/iphone-13.");
+            if (!snap.exists()) {
+                console.error("Firebase: no existe productos/iphone-13");
                 return;
             }
 
-            const data = productSnap.data();
-            const iphone13 = PRODUCTS["13"]?.find(p => p.name === "iPhone 13");
+            const producto = snap.data();
 
-            if (!iphone13) {
-                console.warn("Firebase: no se encontró el producto iPhone 13 en el catálogo.");
-                return;
+            // Actualizamos únicamente el iPhone 13.
+            const iPhone13 = PRODUCTS["13"].find(p => p.name === "iPhone 13");
+
+            if (iPhone13) {
+                if (producto.modelo !== undefined) {
+                    iPhone13.name = String(producto.modelo);
+                }
+
+                if (producto.Stock !== undefined) {
+                    iPhone13.stock = Number(producto.Stock);
+                }
             }
 
-            // Solo reemplazamos los datos que vienen de Firebase.
-            if (data.modelo !== undefined) {
-                iphone13.name = String(data.modelo);
-            }
-
-            if (data.Stock !== undefined) {
-                iphone13.stock = Number(data.Stock);
-            }
-
-            // Redibuja el catálogo conservando exactamente el diseño existente.
+            // Redibujamos y luego colocamos el stock en la tarjeta.
             renderGrid();
 
-            console.log("Firebase conectado correctamente:", data);
+            if (producto.Stock !== undefined) {
+                const tarjetas = document.querySelectorAll("#product-grid article");
+
+                tarjetas.forEach(tarjeta => {
+                    const titulo = tarjeta.querySelector("h3");
+
+                    if (titulo && titulo.textContent.trim() === String(producto.modelo || "Iphone 13")) {
+                        const stock = tarjeta.querySelector(".stock-label");
+                        if (stock) {
+                            stock.textContent = `Stock: ${producto.Stock}`;
+                        }
+                    }
+                });
+            }
+
+            console.log("Firebase OK:", producto);
         } catch (error) {
-            console.error("Error conectando con Firebase:", error);
+            console.error("Firebase ERROR:", error);
         }
     }
 
-    loadIphone13FromFirebase();
+    cargarDatosFirebase();
 </script>
 
 </body></html>
