@@ -230,11 +230,14 @@
                 </button>
             </div>
             <div class="flex-grow flex items-center justify-center mb-6">
-                <img class="w-full h-64 object-contain" alt="${p.name}" src="${p.image}"/>
+                <img class="h-64 object-contain" alt="${p.name}" src="${p.image}"/>
             </div>
             <div class="mt-auto">
                 <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 min-h-[58px] flex items-start">${p.name}</h3>
-                <div class="flex items-center gap-2 mb-4">${swatches}</div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                    <div class="flex items-center gap-2">${swatches}</div>
+                    ${p.stock !== undefined ? `<span class="font-label-mono text-label-mono text-secondary">Stock: ${p.stock}</span>` : ""}
+                </div>
                 <div class="flex justify-end items-center">
                     <button class="bg-primary text-on-primary px-4 py-2 hover:bg-inverse-surface transition-colors font-body-md text-body-md">View</button>
                 </div>
@@ -301,7 +304,7 @@
     // Estado inicial: Usados / iPhone 15 (como venía el diseño)
     renderGrid();
 </script>
-<!-- Firebase: conexión agregada sin modificar el diseño existente -->
+
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.1/firebase-app.js";
     import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.7.1/firebase-firestore.js";
@@ -325,56 +328,30 @@
             const productSnap = await getDoc(productRef);
 
             if (!productSnap.exists()) {
-                console.warn("Firebase: no existe el documento productos/iphone-13.");
+                console.warn("Firebase: no existe productos/iphone-13.");
                 return;
             }
 
             const data = productSnap.data();
+            const iphone13 = PRODUCTS["13"]?.find(p => p.name === "iPhone 13");
 
-            // Solo agregamos/actualizamos los datos que existen en Firebase.
-            // El resto del diseño y de la información actual permanece igual.
+            if (!iphone13) {
+                console.warn("Firebase: no se encontró el producto iPhone 13 en el catálogo.");
+                return;
+            }
+
+            // Solo reemplazamos los datos que vienen de Firebase.
             if (data.modelo !== undefined) {
-                const iphone13 = PRODUCTS["13"]?.find(p => p.name === "iPhone 13");
-                if (iphone13) iphone13.name = String(data.modelo);
+                iphone13.name = String(data.modelo);
             }
 
             if (data.Stock !== undefined) {
-                const iphone13 = PRODUCTS["13"]?.find(p =>
-                    p.name === String(data.modelo || "iPhone 13")
-                );
-                if (iphone13) iphone13.stock = Number(data.Stock);
+                iphone13.stock = Number(data.Stock);
             }
 
-            // Si cambió el modelo, buscamos el producto por su nuevo nombre.
-            if (data.Stock !== undefined) {
-                const iphone13Products = PRODUCTS["13"] || [];
-                const product = iphone13Products.find(p =>
-                    p.name === String(data.modelo || "iPhone 13")
-                );
-                if (product) product.stock = Number(data.Stock);
-            }
-
-            // Mantiene exactamente el diseño existente y solo agrega el stock
-            // como un dato adicional en la tarjeta del iPhone 13.
-            const originalRenderCard = renderCard;
-            window.renderCard = function(p) {
-                const card = originalRenderCard(p);
-
-                if (p.stock !== undefined) {
-                    return card.replace(
-                        '<div class="flex justify-end items-center">',
-                        `<div class="flex justify-between items-center mb-3">
-                            <span class="font-label-mono text-label-mono text-secondary">Stock: ${p.stock}</span>
-                            <span></span>
-                        </div>
-                        <div class="flex justify-end items-center">`
-                    );
-                }
-
-                return card;
-            };
-
+            // Redibuja el catálogo conservando exactamente el diseño existente.
             renderGrid();
+
             console.log("Firebase conectado correctamente:", data);
         } catch (error) {
             console.error("Error conectando con Firebase:", error);
